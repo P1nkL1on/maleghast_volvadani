@@ -307,9 +307,83 @@ function generate_unit_block(data) {
   });
   unit.appendChild(acts);
 
+  if (data[17]?.trim() !== "") {
+    let acts = document.createElement("div");
+    acts.textContent = "EVOLVE";
+    acts.className = "header";
+    acts.style.backgroundColor = colors[data[0]];
+    unit.appendChild(acts);
+    acts = document.createElement("div");
+    acts.style.border = `1px solid ${colors[data[0]]}`;
+    acts.style.backgroundColor = `${colors[data[0]]}25`;
+    acts.className = "act";
+    data.slice(17).forEach((d) => {
+      if (d == "") {
+        return;
+      }
+
+      let line = document.createElement("div");
+      let name = document.createElement("b");
+      let tags = document.createElement("i");
+      let desc = document.createElement("div");
+      line.appendChild(name);
+      line.appendChild(tags);
+      line.appendChild(desc);
+      acts.appendChild(line);
+      if (d[0] == "+") {
+        name.textContent = d;
+        let select = document.createElement("select");
+        let o = document.createElement("option");
+        o.textContent = "";
+        select.appendChild(o);
+        upgrades
+          .filter((u) => u[0] == data[0] && u[1] == "Act")
+          .forEach((u) => {
+            let o = document.createElement("option");
+            o.textContent = u[3];
+            select.appendChild(o);
+          });
+        line.appendChild(select);
+        select.addEventListener("change", function (e) {
+          d = e.target.value;
+          index = d.search(/(|On hit:|Effect:|Line:|Splash:|Stance:|Curse:)/);
+          if (index == -1) {
+            index = d.search(/\./);
+            if (index != -1) { index += 1; }
+          }
+          line1 = d.slice(0, index == -1 ? undefined : index).split(": ");
+
+          name.textContent = line1[0];
+          if (index > -1) {
+            name.textContent += ":\xa0";
+            tags.textContent = line1[1];
+            desc.textContent = d.slice(index);
+          }
+          e.target.selectedIndex = 0;
+        });
+      } else {
+        index = d.search(/(On hit:|Effect:|Line:|Splash:|Stance:|Curse:)/);
+        if (index == -1) {
+          index = d.search(/\./);
+          if (index != -1) { index += 1; }
+        }
+        line1 = d.slice(0, index == -1 ? undefined : index).split(/:\ |\./);
+
+        name.textContent = line1[0];
+
+        if (index > -1) {
+          name.textContent += ":\xa0";
+          tags.textContent = line1[1];
+          desc.textContent = d.slice(index);
+        }
+      }
+    });
+    unit.appendChild(acts);
+  }
+
   let special = document.createElement("div");
   special.className = "row";
-  data.slice(14).forEach((d, i) => {
+  data.slice(14, 17).forEach((d, i) => {
     if (d.trim() === "") { return; }
     s = document.createElement("div");
     if (i == 1) {
