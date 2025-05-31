@@ -17,7 +17,7 @@ Quickly shop at MERCHANT between battle
 
 [Link](https://alessandrominali.github.io/maleghast/merchant.html)
 
-<img width="711" alt="image" src="https://github.com/AlessandroMinali/maleghast/blob/master/units/maleghast-merchant-min.png">
+<img width="711" alt="image" src="https://github.com/AlessandroMinali/maleghast/blob/master/merchant/maleghast-merchant-min.png">
 
 # LEGAL
 
