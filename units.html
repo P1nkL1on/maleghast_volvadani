@@ -157,6 +157,7 @@ function generate_unit_block(data) {
 
   let unit = document.createElement("div");
   unit.className = "unit";
+  if (data[2] == "Necromancer") { unit.style.flexBasis = '99%'; }
   let header = document.createElement("div");
   header.textContent = `${data[1]} (${data[2]})`;
   header.className = "title";
