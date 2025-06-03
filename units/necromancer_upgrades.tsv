@@ -119,7 +119,7 @@ Hellminth	Trait	-	"Talons of Hell: At round 4+, Black Talon obliterates units it
 Hellminth	Act	-	"Caul of the Worm Gods: Ally, Range 1-3. Effect: Target ally gains 1 vitality at the end of its turn (4+) and clears a negative token. End this effect if this ability is used again."
 Hellminth	Act	-	"Psychic Scream: Self. Splash (self): All units in the area lose 1 or (5+) two tokens of this unit’s choice, then are pushed 2."
 Hellminth	Act	-	"Burrow: Self. Effect: Remove self, then place in any space on the battlefield. When reappearing, remove all units in this units space, then each unit’s owner may place them in free space on any edge, starting ally/foe and alternating if necessary."
-Hellminth	Act	-	Acidic Jet: Line 3. Effect: 1 toxic damage and push 1. Any unit in the last space takes 2 piercing toxic damage instead.
+Hellminth	Act	-	Acidic Jet: Line 3. Effect: First unit in the line takes 1 piercing toxic damage and push 1, no effect on other units. Any unit in the last space takes 2 piercing toxic damage instead.
 Hellminth	Act	-	"Dispassionate Dissection: Attack, melee. On hit: 1 damage and (effect: 4+) 1 toxic damage again (6+) then 1 toxic damage again. Effect: Creates two corpses if slaying a foe."
 Hellminth	Act	-	"The Kiss: Attack, melee. On hit: 1 devil damage. Effect: If this slays a unit, obliterate them, then summon a page in their space."
 Hellminth	Act	-	"Swat Nuisance: Attack, melee. On hit: 2 damage and push one or (5+) three spaces. If moving into the space of another unit or a wall, deal 1 damage again to both. This additional damage can’t be increased."
