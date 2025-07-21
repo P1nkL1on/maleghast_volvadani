@@ -12,6 +12,13 @@ Printer and text-search friendly
 
 <img width="711" alt="image" src="https://github.com/AlessandroMinali/maleghast/blob/master/units/image-min.png">
 
+# MERCHANT
+Quickly shop at MERCHANT between battle  
+
+[Link](https://alessandrominali.github.io/maleghast/merchant.html)
+
+<img width="711" alt="image" src="https://github.com/AlessandroMinali/maleghast/blob/master/merchant/maleghast-merchant-min.png">
+
 # LEGAL
 
 All the code is an independent production by Alessandro Minali and is not affiliated with Tom Bloon.

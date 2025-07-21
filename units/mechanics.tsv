@@ -2,7 +2,7 @@ FACTION	NAME	DESCRIPTION
 C.A.R.C.A.S.S.	Formation	"While adjacent to an ally, gain +1D on attacks."
 C.A.R.C.A.S.S.	Reload	"Once used, a unit cannot use any ability with this tag until it reloads. To reload, sacrifice a MOVE. Other abilities may allow a reload for free."
 C.A.R.C.A.S.S.	Headshot	Effect that triggers when rolling a 6 on the final attack roll.
-Goregrinders	Blood Rage	"If a unit with this trait is reduced to 0 hp, they are not slain, but instead gain 1 strength and remain at 0 hp, no matter how much damage they took. If they take any further damage at 0 hp, they are slain as normal."
+Goregrinders	Blood Rage	"If a unit with this trait is reduced to 0 HP, they are not slain, but instead gain 1 strength and remain at 0 HP, no matter how much damage they took. If they take any further damage at 0 HP, they are slain as normal."
 Goregrinders	Berserk	"After a berserk unit ACTs, it splashes (self) 1 damage, then discards a berserk token. This damage can't be increased in any way. If this effect does not damage any other characters, it deals 1 damage to itself instead, ignoring armor. Berserk counts as a positive and a negative token."
 Goregrinders	Retaliation	"After any ability resolves that damages this unit, this unit deals 1 damage back to the ability's owner, even if this unit was slain."
 Gargamox	Plague	"Units affected by plague take 1 toxic damage at the end of their turn, then that unit discards a plague token. This damage cannot be reduced or ignored in any way (by tokens or armor) but cannot slay a unit. Gargamox units don't take damage from plague and don't remove plague tokens, but can still be affected by plague."
@@ -10,9 +10,11 @@ Gargamox	Infect	"Jumps from the original target up to three times to up to three
 Gargamox	Death Burst	Effect that triggers when this unit is slain.
 Deadsouls	Doom	Any unit affected by at least one Doom token takes 4 devil damage at the end of round 4. A unit can only clear a Doom token by slaying another unit and they cannot be cleared in any other way.
 Deadsouls	Isolation	Gains extra effects against units with no allies adjacent.
-Abhorrers	Miracle	"A unit affected by a Miracle has a 5+ effect chance to instantly return to life at 1 hp at the end of any turn it is slain, clearing all tokens."
+Abhorrers	Miracle	"A unit affected by a Miracle has a 5+ effect chance to instantly return to life at 1 HP at the end of any turn it is slain, clearing all tokens."
 Abhorrers	Stance	"An ability with stance gains different effect on odd, even, or special numbered round."
 Igorri	Spare Parts	"If an ability has spare parts, the unit may absorb any number of adjacent corpses at the start of this ability to grant it additional effects, removing those corpses."
 Igorri	Mutate	"When a unit mutates, it gains a mutation token. Mutation tokens can be discarded instead of discarding any other other token. Mutation tokens can be a stand-in and act as a 'copy' for any other token, allowing you to keep the original."
 Steeplewracks	Dive Bomb	"Once a round, at the end of own or an allied turn, a single steeplewrack unit may MOVE for free."
 Steeplewracks	Rip Apart (X)	"This ability gains extra bonuses if X or more allied units or walls are adjacent to the target, including this one."
+Hellminth	Evolve	"Once a round, one Hellminth unit may evolve into a new form at the start of its turn. Evolving grants it additional stats and abilities. If it grants it additional HP, it is added to its current and maximum."
+Hellminth	 Necrophage 	"Units with this trait can spend adajcent corpses as vitality tokens, removing the corpse."

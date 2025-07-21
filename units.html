@@ -94,6 +94,7 @@ const colors = {
   Abhorrers: "#ffc93b",
   Igorri: "#a000ff",
   Steeplewracks: "#f30b0d",
+  Hellminth: "#B2FF08",
 };
 const labels = ["MV", "HP", "DF", "ARM"];
 let house, house_block, units;
@@ -107,9 +108,9 @@ function generate_unit_block(data) {
     house = data[0];
     house_block = document.createElement("div");
     let header = document.createElement("div");
-    header.innerText = house;
+    header.textContent = house;
     header.className = "title unit";
-    if ("GargamoxDeadsoulsAbhorrers".includes(data[0])) {
+    if ("GargamoxDeadsoulsAbhorrersHellminth".includes(data[0])) {
       header.style.color = "black";
     }
     header.style.backgroundColor = colors[data[0]];
@@ -119,9 +120,9 @@ function generate_unit_block(data) {
     mechanic.className = "mechanic";
 
     header = document.createElement("div");
-    header.innerText = "Special Mechanics";
+    header.textContent = "Special Mechanics";
     header.className = "title";
-    if ("GargamoxDeadsoulsAbhorrers".includes(data[0])) {
+    if ("GargamoxDeadsoulsAbhorrersHellminth".includes(data[0])) {
       header.style.color = "black";
     }
     header.style.backgroundColor = colors[data[0]];
@@ -140,9 +141,9 @@ function generate_unit_block(data) {
 
       let header = document.createElement("div");
       let desc = document.createElement("div");
-      header.innerText = d[1];
+      header.textContent = d[1];
       header.className = "header";
-      desc.innerText = d[2];
+      desc.textContent = d[2];
       desc.className = "special";
       s.appendChild(header);
       s.appendChild(desc);
@@ -156,10 +157,11 @@ function generate_unit_block(data) {
 
   let unit = document.createElement("div");
   unit.className = "unit";
+  if (data[2] == "Necromancer") { unit.style.flexBasis = '99%'; }
   let header = document.createElement("div");
-  header.innerText = `${data[1]} (${data[2]})`;
+  header.textContent = `${data[1]} (${data[2]})`;
   header.className = "title";
-  if ("GargamoxDeadsoulsAbhorrers".includes(data[0])) {
+  if ("GargamoxDeadsoulsAbhorrersHellminth".includes(data[0])) {
     header.style.color = "black";
   }
   header.style.backgroundColor = colors[data[0]];
@@ -174,9 +176,9 @@ function generate_unit_block(data) {
     }
     let k = document.createElement("div");
     k.className = "header";
-    k.innerText = labels[i];
+    k.textContent = labels[i];
     let v = document.createElement("div");
-    v.innerText = d;
+    v.textContent = d;
     div.appendChild(k);
     div.appendChild(v);
     stats.appendChild(div);
@@ -184,11 +186,11 @@ function generate_unit_block(data) {
   unit.append(stats);
 
   let traits = document.createElement("div");
-  traits.innerText = "Traits";
+  traits.textContent = "Traits";
   traits.className = "header";
   unit.appendChild(traits);
   traits = document.createElement("ul");
-  data.slice(7, 10).forEach((d) => {
+  data.slice(7, 11).forEach((d) => {
     if (d == "") {
       return;
     }
@@ -199,16 +201,16 @@ function generate_unit_block(data) {
     t.appendChild(span);
     t.appendChild(span2);
     if (d[0] == "+") {
-      span.innerText = d;
+      span.textContent = d;
       let select = document.createElement("select");
       let o = document.createElement("option");
-      o.innerText = "";
+      o.textContent = "";
       select.appendChild(o);
       upgrades
         .filter((u) => u[0] == data[0] && u[1] == "Trait")
         .forEach((u) => {
           let o = document.createElement("option");
-          o.innerText = u[3];
+          o.textContent = u[3];
           select.appendChild(o);
         });
       t.appendChild(select);
@@ -217,10 +219,10 @@ function generate_unit_block(data) {
         e.target.selectedIndex = 0;
 
         index = d.indexOf(':');
-        span.innerText = d.slice(0, index == -1 ? undefined : index);
+        span.textContent = d.slice(0, index == -1 ? undefined : index);
         if (index > 0) {
-          span.innerText += ":";
-          span2.innerText = d.slice(index+1,);
+          span.textContent += ":";
+          span2.textContent = d.slice(index+1,);
         }
       });
       traits.appendChild(t);
@@ -228,22 +230,22 @@ function generate_unit_block(data) {
     }
 
     index = d.indexOf(':');
-    span.innerText = d.slice(0, index == -1 ? undefined : index);
+    span.textContent = d.slice(0, index == -1 ? undefined : index);
     if (index > 0) {
-      span.innerText += ":";
-      span2.innerText = d.slice(index+1,);
+      span.textContent += ":";
+      span2.textContent = d.slice(index+1,);
     }
     traits.appendChild(t);
   });
   unit.appendChild(traits);
 
   let acts = document.createElement("div");
-  acts.innerText = "ACT Abilities";
+  acts.textContent = "ACT Abilities";
   acts.className = "header";
   unit.appendChild(acts);
   acts = document.createElement("div");
   acts.className = "act";
-  data.slice(10, 13).forEach((d) => {
+  data.slice(11, 14).forEach((d) => {
     if (d == "") {
       return;
     }
@@ -257,16 +259,16 @@ function generate_unit_block(data) {
     line.appendChild(desc);
     acts.appendChild(line);
     if (d[0] == "+") {
-      name.innerText = d;
+      name.textContent = d;
       let select = document.createElement("select");
       let o = document.createElement("option");
-      o.innerText = "";
+      o.textContent = "";
       select.appendChild(o);
       upgrades
         .filter((u) => u[0] == data[0] && u[1] == "Act")
         .forEach((u) => {
           let o = document.createElement("option");
-          o.innerText = u[3];
+          o.textContent = u[3];
           select.appendChild(o);
         });
       line.appendChild(select);
@@ -279,11 +281,11 @@ function generate_unit_block(data) {
         }
         line1 = d.slice(0, index == -1 ? undefined : index).split(": ");
 
-        name.innerText = line1[0];
+        name.textContent = line1[0];
         if (index > -1) {
-          name.innerText += ":\xa0";
-          tags.innerText = line1[1];
-          desc.innerText = d.slice(index);
+          name.textContent += ":\xa0";
+          tags.textContent = line1[1];
+          desc.textContent = d.slice(index);
         }
         e.target.selectedIndex = 0;
       });
@@ -295,20 +297,95 @@ function generate_unit_block(data) {
       }
       line1 = d.slice(0, index == -1 ? undefined : index).split(": ");
 
-      name.innerText = line1[0];
+      name.textContent = line1[0];
 
       if (index > -1) {
-        name.innerText += ":\xa0";
-        tags.innerText = line1[1];
-        desc.innerText = d.slice(index);
+        name.textContent += ":\xa0";
+        tags.textContent = line1[1];
+        desc.textContent = d.slice(index);
       }
     }
   });
   unit.appendChild(acts);
 
+  if (data[17]?.trim() !== "") {
+    let acts = document.createElement("div");
+    acts.textContent = "EVOLVE";
+    acts.className = "header";
+    acts.style.backgroundColor = colors[data[0]];
+    unit.appendChild(acts);
+    acts = document.createElement("div");
+    acts.style.border = `1px solid ${colors[data[0]]}`;
+    acts.style.backgroundColor = `${colors[data[0]]}25`;
+    acts.className = "act";
+    data.slice(17).forEach((d) => {
+      if (d == "") {
+        return;
+      }
+
+      let line = document.createElement("div");
+      let name = document.createElement("b");
+      let tags = document.createElement("i");
+      let desc = document.createElement("div");
+      line.appendChild(name);
+      line.appendChild(tags);
+      line.appendChild(desc);
+      acts.appendChild(line);
+      if (d[0] == "+") {
+        name.textContent = d;
+        let select = document.createElement("select");
+        let o = document.createElement("option");
+        o.textContent = "";
+        select.appendChild(o);
+        upgrades
+          .filter((u) => u[0] == data[0] && u[1] == "Act")
+          .forEach((u) => {
+            let o = document.createElement("option");
+            o.textContent = u[3];
+            select.appendChild(o);
+          });
+        line.appendChild(select);
+        select.addEventListener("change", function (e) {
+          d = e.target.value;
+          index = d.search(/(|On hit:|Effect:|Line:|Splash:|Stance:|Curse:)/);
+          if (index == -1) {
+            index = d.search(/\./);
+            if (index != -1) { index += 1; }
+          }
+          line1 = d.slice(0, index == -1 ? undefined : index).split(": ");
+
+          name.textContent = line1[0];
+          if (index > -1) {
+            name.textContent += ":\xa0";
+            tags.textContent = line1[1];
+            desc.textContent = d.slice(index);
+          }
+          e.target.selectedIndex = 0;
+        });
+      } else {
+        index = d.search(/(On hit:|Effect:|Line:|Splash:|Stance:|Curse:)/);
+        if (index == -1) {
+          index = d.search(/\./);
+          if (index != -1) { index += 1; }
+        }
+        line1 = d.slice(0, index == -1 ? undefined : index).split(/:\ |\./);
+
+        name.textContent = line1[0];
+
+        if (index > -1) {
+          name.textContent += ":\xa0";
+          tags.textContent = line1[1];
+          desc.textContent = d.slice(index);
+        }
+      }
+    });
+    unit.appendChild(acts);
+  }
+
   let special = document.createElement("div");
   special.className = "row";
-  data.slice(13).forEach((d, i) => {
+  data.slice(14, 17).forEach((d, i) => {
+    if (d.trim() === "") { return; }
     s = document.createElement("div");
     if (i == 1) {
       s.className = "mid";
@@ -323,18 +400,18 @@ function generate_unit_block(data) {
     header.className = "header";
     desc.className = "special";
     if (d[0] == "+") {
-      header.innerText = d.trim().slice(0, d.length);
+      header.textContent = d.trim().slice(0, d.length);
 
       let select = document.createElement("select");
       let o = document.createElement("option");
       o.value = "";
-      o.innerText = "";
+      o.textContent = "";
       select.appendChild(o);
       upgrades
         .filter((u) => u[0] == data[0] && u[1] == "Soul")
         .forEach((u) => {
           let o = document.createElement("option");
-          o.innerText = u[3];
+          o.textContent = u[3];
           o.value = u[3];
           select.appendChild(o);
         });
@@ -342,13 +419,13 @@ function generate_unit_block(data) {
       select.addEventListener("change", function (e) {
         let v = e.target.value;
         let sep = v.indexOf("):");
-        header.innerText = v.slice(0, sep+1);
-        desc.innerText = v.slice(sep+2);
+        header.textContent = v.slice(0, sep+1);
+        desc.textContent = v.slice(sep+2);
         e.target.selectedIndex = 0;
       });
     } else if (index > -1) {
-      header.innerText = d.trim().slice(0, index);
-      desc.innerText = d.slice(index + 1);
+      header.textContent = d.trim().slice(0, index);
+      desc.textContent = d.slice(index + 1);
     }
     let input = document.createElement('input');
     input.type = 'radio';
@@ -417,7 +494,5 @@ Promise.all([
     });
   });
 });
-
-
   </script>
 </body>
