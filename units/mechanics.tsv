@@ -27,3 +27,4 @@ Volvadani	Loitering Law	"Ended their turn without moving, or ended their turn in
 Volvadani	Contempt of Court Law	"Did not end their turn adjacent to a Volvadani unit."
 Volvadani	Assaulting an Officer Law	"Attacked a Volvadani unit."
 Volvadani	Conspiracy Law	"Used an ability that affected an allied unit."
+Mercenary	Reinforcements	"The following units can be taken as mercenaries. A single unit slot of any type can be a Mercenary (so one unit, or two in the case of thralls). Any faction can take mercenaries. However, unlike core faction units, Mercenaries cannot be upgraded by Dark Power."
